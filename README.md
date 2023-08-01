@@ -8,6 +8,10 @@ development.
  - View the ⭐️ [Metrics Operator Documentation](https://converged-computing.github.io/metrics-operator/) ⭐️
 
 
+## TODO
+
+ - Add logic so we only build on changes (when CI gets too large/busy)
+
 ## License
 
 HPCIC DevTools is distributed under the terms of the MIT license.
