@@ -12,7 +12,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        test: [["sysstat", "ghcr.io/converged-computing/metric-sysstat:latest"]]
+        test: [["sysstat", "ghcr.io/converged-computing/metric-sysstat:latest"],
+               ["osu-benchmark", "ghcr.io/converged-computing/metric-osu-benchmark:latest"]]
 
     steps:
     - name: Clone the code
