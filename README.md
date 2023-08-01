@@ -7,6 +7,17 @@ development.
 
  - View the ⭐️ [Metrics Operator Documentation](https://converged-computing.github.io/metrics-operator/) ⭐️
 
+## Containers
+
+Metrics for the Metrics Operator are backed by containers. For example, storage metrics need to deploy containers that create PV/PVCs for some backend of choice, and the containers need to have the software that monitors the storage. Application metrics are similar, but will have software to monitor process(es). We store (and provide automated builds) for those containers here. Since metrics software can span multiple spaces (e.g., perf vs. storage) we namespace
+them by tool.
+
+ - [sysstat](sysstat) provided via [github.com/sysstat/sysstat](https://github.com/sysstat/sysstat)
+
+
+## TODO
+
+ - Add logic so we only build on changes (when CI gets too large/busy)
 
 ## License
 
