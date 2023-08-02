@@ -1,6 +1,6 @@
 FROM ubuntu
 
-# docker build -t ghcr.io/converged-computing/benchmark-sysstat .
+# docker build -t ghcr.io/converged-computing/metric-sysstat .
 # The entrypoint to download the pid wait command will be generated on the fly
 # via a config map
 
