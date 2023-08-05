@@ -6,8 +6,9 @@ FROM ubuntu:20.04
 # mpirun -n 2 ./osu_get_latency
 
 ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update && apt-get install -y git wget g++ mpich gcc build-essential \
-    openssh-client openssh-server
+RUN apt-get update && apt-get install -y git wget g++ gcc build-essential \
+    openssh-client openssh-server openmpi-bin openmpi-common libopenmpi-dev libgtk2.0-dev \
+    net-tools
 
 # Prepare tutorial per
 # https://ulhpc-tutorials.readthedocs.io/en/latest/parallel/mpi/OSU_MicroBenchmarks/
