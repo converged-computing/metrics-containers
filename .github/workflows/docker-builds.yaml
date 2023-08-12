@@ -15,6 +15,7 @@ jobs:
         test: [["sysstat", "ghcr.io/converged-computing/metric-sysstat:latest"],
                ["osu-benchmark", "ghcr.io/converged-computing/metric-osu-benchmark:latest"],
                ["fio", "ghcr.io/converged-computing/metric-fio:latest"],
+               ["qmcpack", "ghcr.io/converged-computing/metric-qmcpack:latest"],
                ["nekbone", "ghcr.io/converged-computing/metric-nekbone:latest"],
                ["lammps", "ghcr.io/converged-computing/metric-lammps:latest"]] 
 
