@@ -18,6 +18,7 @@ them by tool.
  - [hacc](hacc) (this does not work outside of PowerPC)
  - [nekbone](nekbone)
  - [osu-benchmark](osu-benchmark)
+ - [qmcpack](qmcpack)
 
 ## License
 
