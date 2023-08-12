@@ -13,11 +13,11 @@ Metrics for the Metrics Operator are backed by containers. For example, storage 
 them by tool.
 
  - [sysstat](sysstat) provided via [github.com/sysstat/sysstat](https://github.com/sysstat/sysstat)
-
-
-## TODO
-
- - Add logic so we only build on changes (when CI gets too large/busy)
+ - [fio](fio)
+ - [lammps](lammps)
+ - [hacc](hacc) (this does not work outside of PowerPC)
+ - [nekbone](nekbone)
+ - [osu-benchmark](osu-benchmark)
 
 ## License
 
