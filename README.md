@@ -16,9 +16,10 @@ them by tool.
  - [fio](fio)
  - [lammps](lammps)
  - [hacc](hacc) (this does not work outside of PowerPC)
- - [nekbone](nekbone)
+ - [nekbone](nekbone) with more information [in this PDF](https://github.com/AMDComputeLibraries/Nekbone/blob/amd-openmp/USERGUIDE.pdf)
  - [osu-benchmark](osu-benchmark)
- - [qmcpack](qmcpack)
+ - [qmcpack](qmcpack) and a [summary here](https://asc.llnl.gov/sites/asc/files/2020-09/coral2_qmcpack_vfeb13.pdf)
+ - [amg](amg) has problem examples [here](https://asc.llnl.gov/sites/asc/files/2020-09/AMG_Summary_v1_7.pdf)
 
 ## License
 
