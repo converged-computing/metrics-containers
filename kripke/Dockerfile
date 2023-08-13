@@ -16,11 +16,12 @@ RUN git clone https://github.com/LLNL/Kripke && \
     git submodule update --init --recursive && \
     mkdir build && \
     cd build && \
-    cmake .. && make
-
+    cmake .. && make && \
+    # Expose kripke.exe as kripke in bin
+    mv /opt/Kripke/build/kripke.exe /opt/Kripke/build/bin/kripke
 
 # Put those bad bois on the path!
-ENV PATH=/opt/Kripke/build/bin:$PATH
+ENV PATH=/opt/Kripke:/opt/Kripke/build/bin:$PATH
 
 # Hack for ssh for now...
 RUN echo "        LogLevel ERROR" >> /etc/ssh/ssh_config && \
