@@ -29,7 +29,6 @@ ENV DEBIAN_FRONTEND=noninteractive
 # /opt/quicksilver/Examples/AllEscape/allEscape.inp
 # /opt/quicksilver/Examples/NoFission/noFission.inp
 
-# see https://asc.llnl.gov/sites/asc/files/2020-09/AMG_Summary_v1_7.pdf
 RUN apt-get update && \
     apt-get install -y fftw3-dev fftw3 pdsh libfabric-dev libfabric1 \
         openssh-client openssh-server \
@@ -41,8 +40,6 @@ RUN git clone https://github.com/LLNL/Quicksilver quicksilver
 COPY ./Makefile /opt/quicksilver/src/Makefile
 WORKDIR /opt/quicksilver/src
 RUN make && mv qs /usr/bin/qs
-
-ENV PATH=/opt/AMG/test:$PATH
 
 # Hack for ssh for now...
 RUN echo "        LogLevel ERROR" >> /etc/ssh/ssh_config && \
