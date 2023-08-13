@@ -20,6 +20,7 @@ them by tool.
  - [osu-benchmark](osu-benchmark)
  - [qmcpack](qmcpack) and a [summary here](https://asc.llnl.gov/sites/asc/files/2020-09/coral2_qmcpack_vfeb13.pdf)
  - [amg](amg) has problem examples [here](https://asc.llnl.gov/sites/asc/files/2020-09/AMG_Summary_v1_7.pdf)
+ - [kripke](kripke) builds from [LLNL/Kripke](https://github.com/LLNL/Kripke)
 
 ## License
 
