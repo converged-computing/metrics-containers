@@ -19,6 +19,7 @@ jobs:
                ["pennant", "ghcr.io/converged-computing/metric-pennant:latest"],
                ["qmcpack", "ghcr.io/converged-computing/metric-qmcpack:latest"],
                ["quicksilver", "ghcr.io/converged-computing/metric-quicksilver:latest"],
+               ["ovis-hpc", "ghcr.io/converged-computing/metric-ovis-hpc:latest"],
                ["kripke", "ghcr.io/converged-computing/metric-kripke:latest"],
                ["nekbone", "ghcr.io/converged-computing/metric-nekbone:latest"],
                ["lammps", "ghcr.io/converged-computing/metric-lammps:latest"]] 
