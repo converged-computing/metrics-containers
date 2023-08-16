@@ -20,6 +20,7 @@ jobs:
                ["qmcpack", "ghcr.io/converged-computing/metric-qmcpack:latest"],
                ["quicksilver", "ghcr.io/converged-computing/metric-quicksilver:latest"],
                ["kripke", "ghcr.io/converged-computing/metric-kripke:latest"],
+               ["perfetto", "ghcr.io/converged-computing/metric-perfetto:latest"],
                ["nekbone", "ghcr.io/converged-computing/metric-nekbone:latest"],
                ["lammps", "ghcr.io/converged-computing/metric-lammps:latest"]] 
 
