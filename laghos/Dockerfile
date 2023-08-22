@@ -14,6 +14,7 @@ RUN apt-get update && \
 # Utilities
 RUN apt-get update && \
     apt-get -qq install -y --no-install-recommends \
+        openssh-client openssh-server \
         locales \
         ca-certificates \
         curl \
