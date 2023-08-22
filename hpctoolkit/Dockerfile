@@ -10,7 +10,8 @@ RUN apt-get update && apt-get install -y \
     g++ gcc \
     diffutils \
     python3-dev \
-    curl
+    curl \
+    wget
     
 RUN git clone --depth 1 https://github.com/spack/spack.git && \
     git clone https://gitlab.com/hpctoolkit/hpctoolkit.git
