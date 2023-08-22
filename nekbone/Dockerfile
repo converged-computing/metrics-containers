@@ -35,4 +35,5 @@ RUN echo "        LogLevel ERROR" >> /etc/ssh/ssh_config && \
     cd .ssh && cat id_rsa.pub > authorized_keys && chmod 644 authorized_keys
 
 EXPOSE 22
+ENV PATH=/root/nekbone-3.0/bin:$PATH
 WORKDIR /root/nekbone-3.0/test
