@@ -17,6 +17,7 @@ jobs:
                ["fio", "ghcr.io/converged-computing/metric-fio:latest"],
                ["amg", "ghcr.io/converged-computing/metric-amg:latest"],
                ["pennant", "ghcr.io/converged-computing/metric-pennant:latest"],
+               ["ior", "ghcr.io/converged-computing/metric-ior:latest"],
                ["charmpp", "ghcr.io/converged-computing/metric-charmpp:latest"],
                ["qmcpack", "ghcr.io/converged-computing/metric-qmcpack:latest"],
                ["quicksilver", "ghcr.io/converged-computing/metric-quicksilver:latest"],
