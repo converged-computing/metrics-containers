@@ -27,8 +27,7 @@ WORKDIR /opt
 RUN wget https://github.com/hpc/ior/releases/download/4.0.0rc1/ior-4.0.0rc1.tar.gz && \
     tar -xzvf ior-4.0.0rc1.tar.gz && \
     rm ior-4.0.0rc1.tar.gz && \
-    path=$(ls .) && \
-    mv $path ior
+    mv ior-4.0.0rc1 ./ior
 
 # Note I did as many as I quickly could here - would be good to add aws
 WORKDIR /opt/ior
