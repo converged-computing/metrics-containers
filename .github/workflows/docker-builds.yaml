@@ -23,6 +23,7 @@ jobs:
                ["quicksilver", "ghcr.io/converged-computing/metric-quicksilver:latest"],
                ["ovis-hpc", "ghcr.io/converged-computing/metric-ovis-hpc:latest"],
                ["kripke", "ghcr.io/converged-computing/metric-kripke:latest"],
+               ["hpctoolkit-spack", "ghcr.io/converged-computing/metric-hpctoolkit-spack:latest"],
                ["hpctoolkit", "ghcr.io/converged-computing/metric-hpctoolkit:latest"],
                ["bdas", "ghcr.io/converged-computing/metric-bdas:latest"],
                ["laghos", "ghcr.io/converged-computing/metric-laghos:latest"],
