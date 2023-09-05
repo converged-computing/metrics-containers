@@ -22,7 +22,7 @@ ENV PATH=/spack/bin:$PATH
 RUN spack config update packages -y && \
     spack compiler find
 COPY ./compilers.yaml /root/.spack/linux/compilers.yaml
-RUN spack install hpctoolkit
+RUN spack install hpctoolkit target=x86_64
 
 RUN echo "        LogLevel ERROR" >> /etc/ssh/ssh_config && \
     echo "        StrictHostKeyChecking no" >> /etc/ssh/ssh_config && \
