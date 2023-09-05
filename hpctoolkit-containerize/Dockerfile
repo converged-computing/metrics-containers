@@ -8,6 +8,9 @@ RUN mkdir /opt/spack-environment \
 &&   echo '  view: /opt/views/view' \
 &&   echo '  concretizer:' \
 &&   echo '    unify: true' \
+&&   echo '  packages:' \
+&&   echo '    all:' \
+&&   echo '      require: ["target=:x86_64"]' \
 &&   echo '  config:' \
 &&   echo '    install_tree: /opt/software') > /opt/spack-environment/spack.yaml
 
