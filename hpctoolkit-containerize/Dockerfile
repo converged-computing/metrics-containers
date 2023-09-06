@@ -4,7 +4,7 @@ FROM spack/ubuntu-jammy:latest as builder
 # is specified in a manifest file (spack.yaml)
 RUN mkdir /opt/spack-environment \
 &&  (echo spack: \
-&&   echo '  specs: [hpctoolkit +papi]' \
+&&   echo '  specs: [hpctoolkit +papi +mpi]' \
 &&   echo '  view: /opt/views/view' \
 &&   echo '  concretizer:' \
 &&   echo '    unify: true' \
