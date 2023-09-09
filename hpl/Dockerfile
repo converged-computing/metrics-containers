@@ -45,7 +45,11 @@ RUN git clone --depth 1 https://github.com/ULHPC/tutorials /opt/tutorials && \
 
 WORKDIR /root/hpl
 COPY Makefile ./Make.linux
-RUN make arch=linux
+RUN make arch=linux && \
+    make arch=linux install
+    
+ENV PATH=/root/hpl/bin/linux:$PATH
+
 
 # Hack for ssh for now...
 RUN echo "        LogLevel ERROR" >> /etc/ssh/ssh_config && \
