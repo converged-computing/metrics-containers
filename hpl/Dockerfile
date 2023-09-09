@@ -6,7 +6,8 @@ FROM ubuntu:20.04
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y git wget g++ gcc build-essential \
     openssh-client openssh-server libgtk2.0-dev \
-    net-tools hwloc libhwloc-dev libevent-dev gfortran libopenblas-dev 
+    net-tools hwloc libhwloc-dev libevent-dev gfortran libopenblas-dev \
+    bc
 
 # OpenMPI
 WORKDIR /tmp
