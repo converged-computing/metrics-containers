@@ -30,7 +30,6 @@ RUN cd /opt/spack-environment && \
 
 # Bare OS image to run the installed executables
 FROM ubuntu:22.04
-
 COPY --from=builder /opt/spack-environment /opt/spack-environment
 COPY --from=builder /opt/software /opt/software
 
@@ -44,6 +43,22 @@ RUN { \
     } > /entrypoint.sh \
 && chmod a+x /entrypoint.sh \
 && ln -s /opt/views/view /opt/view
+
+RUN apt-get update && apt-get install -y \
+    wget bc \
+    openssh-client openssh-server && \
+    apt-get clean
+RUN wget -O /opt/view/bin/compute_N https://raw.githubusercontent.com/ULHPC/tutorials/6715c683f851afd61b5a58461863d92bd39df039/parallel/mpi/HPL/scripts/compute_N && \
+    chmod +x /opt/view/bin/compute_N
+
+# Hack for ssh for now...
+RUN echo "        LogLevel ERROR" >> /etc/ssh/ssh_config && \
+    echo "        StrictHostKeyChecking no" >> /etc/ssh/ssh_config && \
+    echo "        UserKnownHostsFile=/dev/null" >> /etc/ssh/ssh_config && \
+    cd /root && \
+    mkdir -p /run/sshd && \
+    ssh-keygen -t rsa -N "" -f /root/.ssh/id_rsa && chmod og+rX . && \
+    cd .ssh && cat id_rsa.pub > authorized_keys && chmod 644 authorized_keys
 
 ENTRYPOINT [ "/entrypoint.sh" ]
 CMD [ "/bin/bash" ]
