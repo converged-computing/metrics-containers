@@ -61,6 +61,12 @@ jobs:
         container: ${{ matrix.test[1] }}
       run: docker pull ${container} || echo "${container} not pushed yet"
 
+    - name: Make Space For Build
+      run: |
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /usr/local/lib/android
+          sudo rm -rf /opt/ghc
+
     - name: Build Container
       env:
         context: ${{ matrix.test[0] }}

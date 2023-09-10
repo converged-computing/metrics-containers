@@ -54,7 +54,6 @@ RUN wget -O /opt/view/bin/compute_N https://raw.githubusercontent.com/ULHPC/tuto
     chmod +x /opt/view/bin/compute_N
 
 # Hack for ssh for now...
-EXPOSE 22
 RUN echo "        LogLevel ERROR" >> /etc/ssh/ssh_config && \
     echo "        StrictHostKeyChecking no" >> /etc/ssh/ssh_config && \
     echo "        UserKnownHostsFile=/dev/null" >> /etc/ssh/ssh_config && \
@@ -63,5 +62,6 @@ RUN echo "        LogLevel ERROR" >> /etc/ssh/ssh_config && \
     ssh-keygen -t rsa -N "" -f /root/.ssh/id_rsa && chmod og+rX . && \
     cd .ssh && cat id_rsa.pub > authorized_keys && chmod 644 authorized_keys
 
+EXPOSE 22
 ENTRYPOINT [ "/entrypoint.sh" ]
 CMD [ "/bin/bash" ]
