@@ -18,6 +18,7 @@ jobs:
                ["amg", "ghcr.io/converged-computing/metric-amg:latest"],
                ["chatterbug", "ghcr.io/converged-computing/metric-chatterbug:latest"],
                ["pennant", "ghcr.io/converged-computing/metric-pennant:latest"],
+               ["hpl-spack", "ghcr.io/converged-computing/metric-hpl-spack:latest"],
                ["hpl", "ghcr.io/converged-computing/metric-hpl:latest"],
                ["ior", "ghcr.io/converged-computing/metric-ior:latest"],
                ["charmpp", "ghcr.io/converged-computing/metric-charmpp:latest"],
