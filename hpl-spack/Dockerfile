@@ -44,14 +44,17 @@ RUN { \
 && chmod a+x /entrypoint.sh \
 && ln -s /opt/views/view /opt/view
 
-RUN apt-get update && apt-get install -y \
-    wget bc \
-    openssh-client openssh-server && \
-    apt-get clean
+RUN apt-get update && \
+    apt-get install -y \
+        wget bc \
+        openssh-client openssh-server && \
+        apt-get clean
+
 RUN wget -O /opt/view/bin/compute_N https://raw.githubusercontent.com/ULHPC/tutorials/6715c683f851afd61b5a58461863d92bd39df039/parallel/mpi/HPL/scripts/compute_N && \
     chmod +x /opt/view/bin/compute_N
 
 # Hack for ssh for now...
+EXPOSE 22
 RUN echo "        LogLevel ERROR" >> /etc/ssh/ssh_config && \
     echo "        StrictHostKeyChecking no" >> /etc/ssh/ssh_config && \
     echo "        UserKnownHostsFile=/dev/null" >> /etc/ssh/ssh_config && \
