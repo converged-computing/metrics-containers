@@ -54,7 +54,7 @@ RUN wget -O /opt/view/bin/compute_N https://raw.githubusercontent.com/ULHPC/tuto
     chmod +x /opt/view/bin/compute_N
 
 # This will ensure spack is loaded with ssh
-RUN cat /etc/environment /opt/spack-environment/activate.sh > /etc/environment
+RUN mkdir -p /root/.ssh && cat /etc/environment /opt/spack-environment/activate.sh > /etc/environment
 
 # Hack for ssh for now...
 # This allows us to use ~/.ssh/environment
