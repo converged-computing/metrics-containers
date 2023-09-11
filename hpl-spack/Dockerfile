@@ -59,6 +59,7 @@ RUN echo "        LogLevel ERROR" >> /etc/ssh/ssh_config && \
     echo "        StrictHostKeyChecking no" >> /etc/ssh/ssh_config && \
     echo "        UserKnownHostsFile=/dev/null" >> /etc/ssh/ssh_config && \
     echo "        PermitUserEnvironment yes" >> /etc/ssh/ssh_config && \
+    mkdir -p /root/.ssh && \
     cp /opt/spack-environment/activate.sh /root/.ssh/environment && \
     cd /root && \
     mkdir -p /run/sshd && \
