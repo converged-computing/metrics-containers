@@ -54,9 +54,12 @@ RUN wget -O /opt/view/bin/compute_N https://raw.githubusercontent.com/ULHPC/tuto
     chmod +x /opt/view/bin/compute_N
 
 # Hack for ssh for now...
+# This allows us to use ~/.ssh/environment
 RUN echo "        LogLevel ERROR" >> /etc/ssh/ssh_config && \
     echo "        StrictHostKeyChecking no" >> /etc/ssh/ssh_config && \
     echo "        UserKnownHostsFile=/dev/null" >> /etc/ssh/ssh_config && \
+    echo "        PermitUserEnvironment yes" >> /etc/ssh/ssh_config && \
+    cp /opt/spack-environment/activate.sh /root/.ssh/environment && \
     cd /root && \
     mkdir -p /run/sshd && \
     ssh-keygen -t rsa -N "" -f /root/.ssh/id_rsa && chmod og+rX . && \
