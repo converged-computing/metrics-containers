@@ -53,15 +53,14 @@ RUN apt-get update && \
 RUN wget -O /opt/view/bin/compute_N https://raw.githubusercontent.com/ULHPC/tutorials/6715c683f851afd61b5a58461863d92bd39df039/parallel/mpi/HPL/scripts/compute_N && \
     chmod +x /opt/view/bin/compute_N
 
+# This will ensure spack is loaded with ssh
+RUN cat /etc/environment /opt/spack-environment/activate.sh > /etc/environment
+
 # Hack for ssh for now...
 # This allows us to use ~/.ssh/environment
-RUN echo "        LogLevel ERROR" >> /etc/ssh/ssh_config && \
-    echo "        StrictHostKeyChecking no" >> /etc/ssh/ssh_config && \
-    echo "        UserKnownHostsFile=/dev/null" >> /etc/ssh/ssh_config && \
-    echo "        PermitUserEnvironment yes" >> /etc/ssh/ssh_config && \
-    mkdir -p /root/.ssh && \
-    cp /opt/spack-environment/activate.sh /root/.ssh/environment && \
-    cd /root && \
+RUN echo "    LogLevel ERROR" >> /etc/ssh/ssh_config && \
+    echo "    StrictHostKeyChecking no" >> /etc/ssh/ssh_config && \
+    echo "    UserKnownHostsFile=/dev/null" >> /etc/ssh/ssh_config && \
     mkdir -p /run/sshd && \
     ssh-keygen -t rsa -N "" -f /root/.ssh/id_rsa && chmod og+rX . && \
     cd .ssh && cat id_rsa.pub > authorized_keys && chmod 644 authorized_keys
