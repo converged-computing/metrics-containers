@@ -63,7 +63,7 @@ RUN echo "        LogLevel ERROR" >> /etc/ssh/ssh_config && \
     cd /root && \
     mkdir -p /run/sshd && \
     ssh-keygen -t rsa -N "" -f /root/.ssh/id_rsa && chmod og+rX . && \
-    cd .ssh && cat id_rsa.pub > authorized_keys && chmod 644 authorized_keys
+    cd /root/.ssh && cat id_rsa.pub > authorized_keys && chmod 644 authorized_keys
 
 # This will ensure spack is loaded with ssh
 RUN cat /etc/environment /opt/spack-environment/activate.sh > /etc/environment
