@@ -73,16 +73,19 @@ RUN . /opt/intel/mpi/latest/env/vars.sh  && \
     make install
 
 # sshd
-RUN sed -i 's/^\(UsePAM yes\)/# \1/' /etc/ssh/sshd_config; \
-    ssh-keygen -q -t rsa -b 2048 -f /etc/ssh/ssh_host_rsa_key -N '' && \
+RUN ssh-keygen -q -t rsa -b 2048 -f /etc/ssh/ssh_host_rsa_key -N '' && \
     ssh-keygen -q -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key -N '' && \
     ssh-keygen -t dsa -f /etc/ssh/ssh_host_ed25519_key  -N '';
-    
+
 WORKDIR /opt/lammps/examples/reaxff/HNS
   
 # Hack for ssh for now...
 RUN echo "        LogLevel ERROR" >> /etc/ssh/ssh_config && \
     echo "        StrictHostKeyChecking no" >> /etc/ssh/ssh_config && \
-    echo "        UserKnownHostsFile=/dev/null" >> /etc/ssh/ssh_config
+    echo "        UserKnownHostsFile=/dev/null" >> /etc/ssh/ssh_config && \
+    cd /root && \
+    mkdir -p /run/sshd && \
+    ssh-keygen -t rsa -N "" -f /root/.ssh/id_rsa && chmod og+rX . && \
+    cd .ssh && cat id_rsa.pub > authorized_keys && chmod 644 authorized_keys
 
 EXPOSE 22
