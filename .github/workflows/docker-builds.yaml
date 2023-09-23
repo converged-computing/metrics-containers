@@ -27,12 +27,14 @@ jobs:
                ["ovis-hpc", "ghcr.io/converged-computing/metric-ovis-hpc:latest"],
                ["kripke", "ghcr.io/converged-computing/metric-kripke:latest"],
                ["hpctoolkit-viewer", "ghcr.io/converged-computing/metric-hpctoolkit-viewer:latest"],
-               ["hpctoolkit-containerize", "ghcr.io/converged-computing/metric-hpctoolkit-view:latest"],
+               ["hpctoolkit-view", "ghcr.io/converged-computing/metric-hpctoolkit-view:ubuntu"],
+               ["hpctoolkit-view-rocky", "ghcr.io/converged-computing/metric-hpctoolkit-view:rocky"],
                ["hpctoolkit-spack", "ghcr.io/converged-computing/metric-hpctoolkit-spack:latest"],
                ["hpctoolkit", "ghcr.io/converged-computing/metric-hpctoolkit:latest"],
                ["bdas", "ghcr.io/converged-computing/metric-bdas:latest"],
                ["laghos", "ghcr.io/converged-computing/metric-laghos:latest"],
                ["nekbone", "ghcr.io/converged-computing/metric-nekbone:latest"],
+               ["lammps-intel-mpi-rocky", "ghcr.io/converged-computing/metric-lammps-intel-mpi:rocky"],
                ["lammps", "ghcr.io/converged-computing/metric-lammps:latest"],
                ["perf-kit-benchmarker", "ghcr.io/converged-computing/metric-perf-kit-benchmarker:latest"]] 
 
