@@ -1,8 +1,6 @@
 ARG tag=jammy
 FROM spack/ubuntu-${tag}:latest as builder
 
-# What we want to install and how we want to install it
-# is specified in a manifest file (spack.yaml)
 RUN mkdir /opt/spack-environment \
 &&  (echo spack: \
 &&   echo '  specs: [hwloc+cairo]' \
