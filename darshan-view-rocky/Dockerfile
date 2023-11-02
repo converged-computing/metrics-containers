@@ -4,7 +4,7 @@ FROM spack/rockylinux8:latest as builder
 # is specified in a manifest file (spack.yaml)
 RUN mkdir /opt/spack-environment \
 &&  (echo spack: \
-&&   echo '  specs: [darshan-runtime +hdf5, darshan-util, py-darshan]' \
+&&   echo '  specs: [darshan-runtime, darshan-util, py-darshan]' \
 &&   echo '  view: /opt/views/view' \
 &&   echo '  concretizer:' \
 &&   echo '    unify: true' \
