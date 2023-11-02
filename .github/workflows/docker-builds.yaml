@@ -28,6 +28,8 @@ jobs:
                ["ovis-hpc", "ghcr.io/converged-computing/metric-ovis-hpc:latest"],
                ["kripke", "ghcr.io/converged-computing/metric-kripke:latest"],
                ["mpitrace-rocky", "ghcr.io/converged-computing/metric-mpitrace:rocky"],
+               ["darshan-view", "ghcr.io/converged-computing/metric-darshan-view:ubuntu"],
+               ["darshan-view-rocky", "ghcr.io/converged-computing/metric-darshan-view:rocky"],
                ["hpctoolkit-viewer", "ghcr.io/converged-computing/metric-hpctoolkit-viewer:latest"],
                ["hpctoolkit-view", "ghcr.io/converged-computing/metric-hpctoolkit-view:ubuntu"],
                ["hpctoolkit-view-rocky", "ghcr.io/converged-computing/metric-hpctoolkit-view:rocky"],
