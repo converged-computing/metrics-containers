@@ -4,7 +4,7 @@ FROM spack/rockylinux8:latest as builder
 # is specified in a manifest file (spack.yaml)
 RUN mkdir /opt/spack-environment \
 &&  (echo spack: \
-&&   echo '  specs: [darshan-runtime +hdf5 +apmpi +apmpi_sync +apxc, darshan-util +apmpi +apxc, py-darshan]' \
+&&   echo '  specs: [darshan-runtime +hdf5, darshan-util, py-darshan]' \
 &&   echo '  view: /opt/views/view' \
 &&   echo '  concretizer:' \
 &&   echo '    unify: true' \
@@ -15,6 +15,7 @@ RUN mkdir /opt/spack-environment \
 &&   echo '    install_tree: /opt/software') > /opt/spack-environment/spack.yaml
 
 # Install the software, remove unnecessary deps
+COPY ./package.py /opt/spack/var/spack/repos/builtin/packages/darshan-runtime/package.py
 RUN cd /opt/spack-environment && spack env activate . && spack install --fail-fast && spack gc -y
 
 # Strip all the binaries
