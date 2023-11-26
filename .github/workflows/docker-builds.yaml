@@ -22,6 +22,7 @@ jobs:
                ["hpl-spack", "ghcr.io/converged-computing/metric-hpl-spack:latest"],
                ["hpl", "ghcr.io/converged-computing/metric-hpl:latest"],
                ["ior", "ghcr.io/converged-computing/metric-ior:latest"],
+               ["cabanaPIC", "ghcr.io/converged-computing/metric-cabanapic:latest"],
                ["charmpp", "ghcr.io/converged-computing/metric-charmpp:latest"],
                ["qmcpack", "ghcr.io/converged-computing/metric-qmcpack:latest"],
                ["quicksilver", "ghcr.io/converged-computing/metric-quicksilver:latest"],
