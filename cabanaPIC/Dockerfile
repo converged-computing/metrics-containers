@@ -57,9 +57,17 @@ RUN git clone https://github.com/ECP-copa/Cabana.git /opt/Cabana && \
       -D Cabana_ENABLE_CAJITA=ON .. && \
     make install 
  
-# Examples are here
-WORKDIR /opt/Cabana/build/example
+# Basic Examples are here
+# /opt/Cabana/build/example
+RUN git clone https://github.com/ECP-copa/CabanaPIC /opt/cabanaPIC && \
+    cd /opt/cabanaPIC && \
+    mkdir build && cd build && \
+    cmake -DCMAKE_PREFIX_PATH=$CABANA_INSTALL_DIR .. && \
+    make && make install
+# executable is cbnpic (uses kokkos)
  
+WORKDIR /opt/cabanaPIC/build
+
 # Hack for ssh for now...
 RUN echo "        LogLevel ERROR" >> /etc/ssh/ssh_config && \
     echo "        StrictHostKeyChecking no" >> /etc/ssh/ssh_config && \
