@@ -12,6 +12,7 @@ RUN apt-get update && \
         curl \
         wget \
         libhdf5-serial-dev \
+        libhdf5-mpi-dev  \
         apt-utils \
         cmake \
         clang \
@@ -23,6 +24,7 @@ RUN apt-get update && \
         jq \
         build-essential \
         python3-pip \
+        unzip \
         libgtest-dev && \
     rm -rf /var/lib/apt/lists/*
 
@@ -33,7 +35,6 @@ ENV MAKE_CXX_FLAG="MPICXX=mpic++"
 RUN python3 -m pip install clang-format
 RUN git clone https://github.com/kokkos/kokkos.git /opt/kokkos && \
     cd /opt/kokkos && \
-    git checkout 3.4.01 && \
     mkdir build && cd build && \
     cmake -D CMAKE_BUILD_TYPE="Release" \
       -D CMAKE_INSTALL_PREFIX=$KOKKOS_INSTALL_DIR \
@@ -42,9 +43,10 @@ RUN git clone https://github.com/kokkos/kokkos.git /opt/kokkos && \
       make install
 
 ENV CABANA_INSTALL_DIR=/opt/Cabana/build/install
-RUN git clone https://github.com/ECP-copa/Cabana.git /opt/Cabana && \
+RUN wget https://github.com/ECP-copa/Cabana/archive/refs/tags/0.6.1.zip && \
+    unzip 0.6.1.zip && \
+    mv Cabana-0.6.1/ /opt/Cabana && \
     cd /opt/Cabana && \
-    git checkout 0.4.0 && \
     mkdir build && cd build && \
     cmake \
       -D CMAKE_BUILD_TYPE="Release" \
@@ -58,24 +60,17 @@ RUN git clone https://github.com/ECP-copa/Cabana.git /opt/Cabana && \
       -D Cabana_ENABLE_CAJITA=ON .. && \
     make install 
  
-# Basic Examples are here
-# /opt/Cabana/build/example
-RUN git clone https://github.com/ECP-copa/CabanaPIC /opt/cabanaPIC && \
-    cd /opt/cabanaPIC && \
-    mkdir build && cd build && \
-    cmake -DCMAKE_PREFIX_PATH=$CABANA_INSTALL_DIR .. && \
-    make && make install
-
-# executable is cbnpic (uses kokkos)
-# /opt/cabanaPIC/build
-
 # Install exaMPM
 RUN git clone https://github.com/ECP-copa/ExaMPM /opt/exaMPM && \
     cd /opt/exaMPM && \
     mkdir build && \
     cd build && \
-    cmake -D CMAKE_BUILD_TYPE="Release" -D CMAKE_PREFIX_PATH=$CABANA_INSTALL_DIR -D CMAKE_INSTALL_PREFIX=install .. && \
+    cmake -D CMAKE_BUILD_TYPE="Release" \
+      -D CMAKE_PREFIX_PATH=$CABANA_INSTALL_DIR \
+      -D CMAKE_INSTALL_PREFIX=install .. && \
     make install
+
+WORKDIR /opt/exaMPM/build/examples
 
 # Hack for ssh for now...
 RUN echo "        LogLevel ERROR" >> /etc/ssh/ssh_config && \
