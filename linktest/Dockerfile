@@ -27,6 +27,7 @@ RUN apt-get update && \
         build-essential \
         gcc-multilib \
         g++-multilib \
+        gfortran \
         python3-numpy \
         python3-matplotlib \
         libgtest-dev && \
