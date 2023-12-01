@@ -22,7 +22,6 @@ jobs:
                ["hpl-spack", "ghcr.io/converged-computing/metric-hpl-spack:latest"],
                ["hpl", "ghcr.io/converged-computing/metric-hpl:latest"],
                ["ior", "ghcr.io/converged-computing/metric-ior:latest"],
-               ["linktest", "ghcr.io/converged-computing/metric-linktest:latest"],
                ["exaMPM", "ghcr.io/converged-computing/metric-exampm:latest"],
                ["cabanaPIC", "ghcr.io/converged-computing/metric-cabanapic:latest"],
                ["charmpp", "ghcr.io/converged-computing/metric-charmpp:latest"],
