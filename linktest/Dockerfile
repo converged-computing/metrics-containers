@@ -20,6 +20,8 @@ RUN apt-get update && \
         clang \
         clang-format \
         openmpi-bin libopenmpi-dev \
+        mpich \
+        libmpich-dev \
         git \
         jq \
         python3-dev \
