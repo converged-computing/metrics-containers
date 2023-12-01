@@ -32,8 +32,10 @@ RUN apt-get update && \
         libgtest-dev && \
     rm -rf /var/lib/apt/lists/*
 
-RUN wget -O test.tar.gz https://apps.fz-juelich.de/jsc/sionlib/download.php?version=1.7.7 && \
-    tar -xzvg test.tar.gz && \
+RUN wget https://apps.fz-juelich.de/jsc/sionlib/download.php?version=1.7.7 && \
+    filename=$(ls download*) && \
+    mv $filename test.tar.gz && \
+    tar -xzvf test.tar.gz && \
     cd sionlib && \
      ./configure --prefix=/usr --mpi=openmpi && \
      cd build-linux-gomp10-openmpi && \

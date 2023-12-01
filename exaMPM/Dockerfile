@@ -18,8 +18,7 @@ RUN apt-get update && \
         clang \
         clang-format \
         doxygen \
-        mpich \
-        libmpich-dev \
+        openmpi-bin libopenmpi-dev \
         git \
         jq \
         build-essential \
